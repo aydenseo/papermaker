@@ -23,6 +23,13 @@ export function SectionEditor({ title, description, placeholder }: SectionEditor
             setContent(improvedText);
         } catch (error) {
             console.error("Failed to improve text:", error);
+            const errorMessage = error instanceof Error ? error.message : String(error);
+
+            if (errorMessage.includes("404") || errorMessage.includes("NOT_FOUND")) {
+                alert("서버와 연결이 끊어졌거나 업데이트되었습니다. 페이지를 새로고침합니다.");
+                window.location.reload();
+                return;
+            }
             alert("AI 첨삭 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.");
         } finally {
             setIsImproving(false);
