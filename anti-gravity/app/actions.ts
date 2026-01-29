@@ -11,6 +11,7 @@ export async function improveText(text: string, sectionTitle: string) {
         throw new Error("Gemini API Key is missing");
     }
 
+    // Use gemini-1.5-flash as it is the latest stable model
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
     const prompt = `

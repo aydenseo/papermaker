@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Sparkles } from "lucide-react";
-import { improveText } from "@/lib/gemini";
+import { improveText } from "@/app/actions";
 
 interface SectionEditorProps {
     title: string;
